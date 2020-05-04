@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface PersonService {
     List<Person> findAll();
+
     Person findFirst();
+
+    Person save(Person person);
 }

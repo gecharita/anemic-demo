@@ -26,4 +26,9 @@ public class PersonServiceImpl implements PersonService {
     public Person findFirst() {
         return personRepository.findAll().iterator().next();
     }
+
+    @Override
+    public Person save(Person person) {
+        return personRepository.save(person);
+    }
 }

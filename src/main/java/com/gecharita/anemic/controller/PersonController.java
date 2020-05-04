@@ -1,15 +1,16 @@
 package com.gecharita.anemic.controller;
 
+import com.gecharita.anemic.dto.PersonDTO;
+import com.gecharita.anemic.mapper.PersonMapper;
 import com.gecharita.anemic.model.Person;
 import com.gecharita.anemic.service.PersonService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/persons")
@@ -17,20 +18,33 @@ public class PersonController {
 
     private static final Logger LOGGER = Logger.getLogger(PersonController.class.getName()) ;
     private final PersonService personService;
+    private final PersonMapper personMapper;
 
-    public PersonController(PersonService personService){
+    public PersonController(PersonService personService, PersonMapper personMapper){
+        this.personMapper = personMapper;
         this.personService = personService;
     }
 
-    @GetMapping("/getAll")
-    public List<Person> getAllPersons(){
-        LOGGER.info(personService.findAll().toString());
-        return personService.findAll();
+    @GetMapping()
+    public ResponseEntity<List<PersonDTO>> getAll(){
+        List<Person> personList = personService.findAll();
+        List<PersonDTO> personDTOList = personList.stream().map(personMapper::toPersonDTO).collect(Collectors.toList());
+        return  ResponseEntity.ok(personDTOList);
+    }
+
+    @PostMapping("")
+    public ResponseEntity<PersonDTO> createPerson(@RequestBody PersonDTO personDTO){
+        Person person = personMapper.toPerson(personDTO);
+        person = personService.save(person);
+        return ResponseEntity.ok(personMapper.toPersonDTO(person));
     }
 
     @GetMapping("/getFirst")
-    public ResponseEntity<Person> getFirst(){
-        LOGGER.info(personService.findAll().toString());
-        return ResponseEntity.ok(personService.findFirst());
+    public ResponseEntity<PersonDTO> getFirst(){
+        Person person = personService.findFirst();
+        PersonDTO personDTO = personMapper.toPersonDTO(person);
+        return ResponseEntity.ok(personDTO);
     }
+
+
 }

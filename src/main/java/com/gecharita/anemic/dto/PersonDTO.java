@@ -1,15 +1,11 @@
-package com.gecharita.anemic.model;
+package com.gecharita.anemic.dto;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 
-@Entity
-public class Person implements Serializable {
-    @Id
-    @GeneratedValue
+public class PersonDTO implements Serializable {
+
     private Long id;
     private String name;
     private int phone;
@@ -40,11 +36,10 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "PersonDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phone=" + phone +
                 '}';
     }
-
 }
