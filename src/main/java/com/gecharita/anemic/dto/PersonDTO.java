@@ -1,7 +1,5 @@
 package com.gecharita.anemic.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 public class PersonDTO implements Serializable {
@@ -9,6 +7,8 @@ public class PersonDTO implements Serializable {
     private Long id;
     private String name;
     private int phone;
+    private String address;
+    private String country;
 
     public Long getId() {
         return id;
@@ -34,12 +34,30 @@ public class PersonDTO implements Serializable {
         this.phone = phone;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return "PersonDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phone=" + phone +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 }

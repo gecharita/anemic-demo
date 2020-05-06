@@ -13,6 +13,8 @@ public class Person implements Serializable {
     private Long id;
     private String name;
     private int phone;
+    private String address;
+    private String country;
 
     public Long getId() {
         return id;
@@ -38,13 +40,30 @@ public class Person implements Serializable {
         this.phone = phone;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phone=" + phone +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
-
 }
