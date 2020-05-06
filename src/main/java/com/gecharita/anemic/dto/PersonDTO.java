@@ -9,6 +9,7 @@ public class PersonDTO implements Serializable {
     private int phone;
     private String address;
     private String country;
+    private int age;
 
     public Long getId() {
         return id;
@@ -50,6 +51,14 @@ public class PersonDTO implements Serializable {
         this.country = country;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "PersonDTO{" +
@@ -58,6 +67,9 @@ public class PersonDTO implements Serializable {
                 ", phone=" + phone +
                 ", address='" + address + '\'' +
                 ", country='" + country + '\'' +
+                ", age=" + age +
                 '}';
     }
+
+
 }

@@ -15,6 +15,7 @@ public class Person implements Serializable {
     private int phone;
     private String address;
     private String country;
+    private int age;
 
     public Long getId() {
         return id;
@@ -56,6 +57,14 @@ public class Person implements Serializable {
         this.country = country;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -64,6 +73,7 @@ public class Person implements Serializable {
                 ", phone=" + phone +
                 ", address='" + address + '\'' +
                 ", country='" + country + '\'' +
+                ", age=" + age +
                 '}';
     }
 }
