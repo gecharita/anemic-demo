@@ -1,7 +1,11 @@
 package com.gecharita.anemic.dto;
 
+import lombok.*;
+
 import java.io.Serializable;
 
+//@ToString
+//@AllArgsConstructor(access = AccessLevel.PRIVATE) //Hides the constructor to force useage of the Builder.
 public class PersonDTO implements Serializable {
 
     private Long id;
@@ -58,18 +62,4 @@ public class PersonDTO implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-
-    @Override
-    public String toString() {
-        return "PersonDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone=" + phone +
-                ", address='" + address + '\'' +
-                ", country='" + country + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
-
 }
