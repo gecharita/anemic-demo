@@ -32,7 +32,7 @@ public class PersonController {
         return  ResponseEntity.ok(personDTOList);
     }
 
-    @PostMapping("")
+    @PostMapping()
     public ResponseEntity<PersonDTO> createPerson(@RequestBody PersonDTO personDTO){
         Person person = personMapper.toPerson(personDTO);
         person = personService.save(person);

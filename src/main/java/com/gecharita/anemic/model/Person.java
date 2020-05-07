@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Entity
 @Builder
 @ToString
-@Data()
+@Data
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Person implements Serializable {
     @Id
@@ -27,13 +27,10 @@ public class Person implements Serializable {
     private int phone;
 
     @Setter(AccessLevel.PRIVATE)
-    private String address;
-
-    @Setter(AccessLevel.PRIVATE)
-    private String country;
-
-    @Setter(AccessLevel.PRIVATE)
     private int age;
+
+    @Setter(AccessLevel.PRIVATE)
+    private Location location;
 
     @Tolerate
     protected Person(){}
