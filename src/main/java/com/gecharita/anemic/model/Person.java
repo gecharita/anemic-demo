@@ -20,8 +20,9 @@ public class Person implements Serializable {
     @Setter(AccessLevel.PRIVATE)
     private String name;
 
+    //TIGHTLY coupled
     @Setter(AccessLevel.PRIVATE)
-    private int phone;
+    private PhoneNumber phone;
 
     // LOOSELY coupled because the column-mapping is outside Age class
     @Convert(converter = AgeConverter.class)

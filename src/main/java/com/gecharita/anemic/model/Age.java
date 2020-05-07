@@ -17,7 +17,7 @@ public class Age {
 
     private Age(int value){
         if (value < 0){
-           throw new ArithmeticException("Age cannot be negative");
+           throw new ArithmeticException("Age cannot be negative: " + value);
         }
         this.value = value;
     }
