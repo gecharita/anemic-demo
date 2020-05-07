@@ -1,4 +1,6 @@
-package com.gecharita.anemic.model;
+package com.gecharita.anemic.model.converter;
+
+import com.gecharita.anemic.model.vo.Age;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

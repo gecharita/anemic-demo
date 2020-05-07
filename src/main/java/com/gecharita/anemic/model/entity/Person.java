@@ -1,10 +1,15 @@
-package com.gecharita.anemic.model;
+package com.gecharita.anemic.model.entity;
 
+import com.gecharita.anemic.model.vo.Age;
+import com.gecharita.anemic.model.converter.AgeConverter;
+import com.gecharita.anemic.model.vo.Location;
+import com.gecharita.anemic.model.vo.PhoneNumber;
 import lombok.*;
 import lombok.experimental.Tolerate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Base64;
 
 @Entity
 @Builder
@@ -35,5 +40,10 @@ public class Person implements Serializable {
 
     @Tolerate
     protected Person(){}
+
+    public String getTaxNumber(){
+        String taxNumber = age.getValue()  + location.getCountry() + id;
+        return String.valueOf(taxNumber.hashCode()).replace("-","");
+    }
 
 }

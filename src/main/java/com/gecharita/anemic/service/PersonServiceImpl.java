@@ -1,10 +1,11 @@
 package com.gecharita.anemic.service;
 
-import com.gecharita.anemic.model.Person;
+import com.gecharita.anemic.model.entity.Person;
 import com.gecharita.anemic.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -30,5 +31,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person save(Person person) {
         return personRepository.save(person);
+    }
+
+    @Override
+    public String getTaxNumber(Long id) {
+        Optional<Person> opt = personRepository.findById(id);
+        return opt.isPresent() ? opt.get().getTaxNumber(): "No valid personId";
     }
 }

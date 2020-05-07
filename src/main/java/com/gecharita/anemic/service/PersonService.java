@@ -1,6 +1,6 @@
 package com.gecharita.anemic.service;
 
-import com.gecharita.anemic.model.Person;
+import com.gecharita.anemic.model.entity.Person;
 
 import java.util.List;
 
@@ -10,4 +10,6 @@ public interface PersonService {
     Person findFirst();
 
     Person save(Person person);
+
+    String getTaxNumber(Long id);
 }

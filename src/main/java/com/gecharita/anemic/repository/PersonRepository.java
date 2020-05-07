@@ -1,6 +1,6 @@
 package com.gecharita.anemic.repository;
 
-import com.gecharita.anemic.model.Person;
+import com.gecharita.anemic.model.entity.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

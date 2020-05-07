@@ -1,4 +1,4 @@
-package com.gecharita.anemic.model;
+package com.gecharita.anemic.model.vo;
 
 import lombok.*;
 import lombok.experimental.Tolerate;
@@ -20,5 +20,9 @@ public class Age {
            throw new ArithmeticException("Age cannot be negative: " + value);
         }
         this.value = value;
+    }
+
+    public boolean isAdult(){
+        return value >17;
     }
 }

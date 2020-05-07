@@ -1,4 +1,4 @@
-package com.gecharita.anemic.model;
+package com.gecharita.anemic.model.vo;
 
 import lombok.AccessLevel;
 import lombok.Builder;

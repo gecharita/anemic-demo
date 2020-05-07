@@ -2,13 +2,12 @@ package com.gecharita.anemic.controller;
 
 import com.gecharita.anemic.dto.PersonDTO;
 import com.gecharita.anemic.mapper.PersonMapper;
-import com.gecharita.anemic.model.Person;
+import com.gecharita.anemic.model.entity.Person;
 import com.gecharita.anemic.service.PersonService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.function.Function;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -44,6 +43,11 @@ public class PersonController {
         Person person = personService.findFirst();
         PersonDTO personDTO = personMapper.toPersonDTO(person);
         return ResponseEntity.ok(personDTO);
+    }
+
+    @GetMapping("/tax-number/{personId}")
+    public ResponseEntity<String> geTaxNumber(@PathVariable Long personId){
+        return ResponseEntity.ok(personService.getTaxNumber(personId));
     }
 
 

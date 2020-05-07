@@ -1,7 +1,7 @@
 package com.gecharita.anemic.mapper;
 
 import com.gecharita.anemic.dto.PersonDTO;
-import com.gecharita.anemic.model.Person;
+import com.gecharita.anemic.model.entity.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
