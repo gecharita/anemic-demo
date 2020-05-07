@@ -42,7 +42,6 @@ public class PersonController {
     @GetMapping("/getFirst")
     public ResponseEntity<PersonDTO> getFirst(){
         Person person = personService.findFirst();
-        System.out.println(person);
         PersonDTO personDTO = personMapper.toPersonDTO(person);
         return ResponseEntity.ok(personDTO);
     }

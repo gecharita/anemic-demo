@@ -5,23 +5,34 @@ import lombok.experimental.Tolerate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
 @Builder
 @ToString
-//@Value
-//@NoArgsConstructor
-//@AllArgsConstructor(access = AccessLevel.PROTECTED) //Hides the constructor to force useage of the Builder.
+@Data()
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Person implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Setter(AccessLevel.PRIVATE)
     private Long id;
+
+    @Setter(AccessLevel.PRIVATE)
     private String name;
+
+    @Setter(AccessLevel.PRIVATE)
     private int phone;
+
+    @Setter(AccessLevel.PRIVATE)
     private String address;
+
+    @Setter(AccessLevel.PRIVATE)
     private String country;
+
+    @Setter(AccessLevel.PRIVATE)
     private int age;
 
     @Tolerate
