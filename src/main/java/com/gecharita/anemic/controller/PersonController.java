@@ -39,7 +39,7 @@ public class PersonController {
         return ResponseEntity.ok(personMapper.toPersonDTO(person));
     }
 
-    @GetMapping("/getFirst")
+    @GetMapping("/first")
     public ResponseEntity<PersonDTO> getFirst(){
         Person person = personService.findFirst();
         PersonDTO personDTO = personMapper.toPersonDTO(person);

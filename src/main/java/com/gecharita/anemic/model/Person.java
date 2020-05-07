@@ -3,10 +3,7 @@ package com.gecharita.anemic.model;
 import lombok.*;
 import lombok.experimental.Tolerate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -26,9 +23,12 @@ public class Person implements Serializable {
     @Setter(AccessLevel.PRIVATE)
     private int phone;
 
+    // LOOSELY coupled because the column-mapping is outside Age class
+    @Convert(converter = AgeConverter.class)
     @Setter(AccessLevel.PRIVATE)
-    private int age;
+    private Age age;
 
+    // TIGHTLY coupled because the column-mapping is inside Location class
     @Setter(AccessLevel.PRIVATE)
     private Location location;
 

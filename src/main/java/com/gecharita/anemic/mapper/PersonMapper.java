@@ -10,10 +10,12 @@ public interface PersonMapper {
 
     @Mapping(source = "address", target = "location.address")
     @Mapping(source = "country", target = "location.country")
+    @Mapping(source = "age", target = "age.value")
     Person toPerson(PersonDTO personDTO);
 
     @Mapping(source = "location.address", target = "address")
     @Mapping(source = "location.country", target = "country")
+    @Mapping(source = "age.value", target = "age")
     PersonDTO toPersonDTO(Person person);
 
 }
