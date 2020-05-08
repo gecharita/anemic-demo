@@ -6,10 +6,10 @@ import lombok.experimental.Tolerate;
 
 @Builder
 @Data
+@Setter(AccessLevel.PRIVATE)
 //@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Age {
 
-    @Setter(AccessLevel.PRIVATE)
     private int value;
 
     @Tolerate

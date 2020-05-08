@@ -13,11 +13,11 @@ import javax.persistence.Embeddable;
 @Embeddable
 @Builder
 @Data
+@Setter(AccessLevel.PRIVATE)
 //@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class PhoneNumber {
 
     @Column(name="phone")
-    @Setter(AccessLevel.PRIVATE)
     private int value;
 
     @Tolerate

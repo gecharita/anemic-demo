@@ -8,13 +8,11 @@ import javax.persistence.Embeddable;
 @Embeddable
 @Builder
 @Data
+@Setter(AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Location {
 
-    @Setter(AccessLevel.PRIVATE)
     private String address;
-
-    @Setter(AccessLevel.PRIVATE)
     private String country;
 
     @Tolerate
