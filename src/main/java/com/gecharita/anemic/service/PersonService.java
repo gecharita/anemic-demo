@@ -10,4 +10,9 @@ public interface PersonService {
     Person findFirst();
 
     Person save(Person person);
+
+    String getTaxNumber(long personId);
+
+    boolean isAdult(long personId);
+
 }

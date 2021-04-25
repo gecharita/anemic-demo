@@ -46,5 +46,20 @@ public class PersonController {
         return ResponseEntity.ok(personDTO);
     }
 
+    @GetMapping("/taxNumber/{personId}")
+    public ResponseEntity<String> getTaxNumber(@PathVariable long personId){
+        return ResponseEntity.ok(personService.getTaxNumber(personId));
+    }
+
+    @GetMapping("/isAdult/{personId}")
+    public ResponseEntity<Boolean> isAdult(@PathVariable long personId){
+        return ResponseEntity.ok(personService.isAdult(personId));
+    }
+
+
+    private void test() {
+        Person person = Person.builder().address("Egnatia").country("Hellas").build();
+    }
+
 
 }

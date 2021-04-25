@@ -4,7 +4,9 @@ import com.gecharita.anemic.model.Person;
 import com.gecharita.anemic.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -31,4 +33,24 @@ public class PersonServiceImpl implements PersonService {
     public Person save(Person person) {
         return personRepository.save(person);
     }
+
+    @Override
+    public String getTaxNumber(long personId) {
+        Optional<Person> opt = personRepository.findById(personId);
+        if(!opt.isPresent()) {
+            throw new EntityNotFoundException();
+        }
+        Person person = opt.get();
+        return person.getTaxNumber();
+    };
+
+    @Override
+    public boolean isAdult(long personId) {
+        Optional<Person> opt = personRepository.findById(personId);
+        if(!opt.isPresent()) {
+            throw new EntityNotFoundException();
+        }
+        Person person = opt.get();
+        return person.getAge().isAdult();
+    };
 }
