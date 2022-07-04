@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.function.Function;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -27,6 +26,7 @@ public class PersonController {
 
     @GetMapping()
     public ResponseEntity<List<PersonDTO>> getAll(){
+        LOGGER.info("getAll");
         List<Person> personList = personService.findAll();
         List<PersonDTO> personDTOList = personList.stream().map(personMapper::toPersonDTO).collect(Collectors.toList());
         return  ResponseEntity.ok(personDTOList);
@@ -34,6 +34,7 @@ public class PersonController {
 
     @PostMapping("")
     public ResponseEntity<PersonDTO> createPerson(@RequestBody PersonDTO personDTO){
+        LOGGER.info("createPerson");
         Person person = personMapper.toPerson(personDTO);
         person = personService.save(person);
         return ResponseEntity.ok(personMapper.toPersonDTO(person));
@@ -41,6 +42,7 @@ public class PersonController {
 
     @GetMapping("/getFirst")
     public ResponseEntity<PersonDTO> getFirst(){
+        LOGGER.info("getFirst");
         Person person = personService.findFirst();
         PersonDTO personDTO = personMapper.toPersonDTO(person);
         return ResponseEntity.ok(personDTO);
